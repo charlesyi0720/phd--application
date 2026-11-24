@@ -6,40 +6,120 @@
 \usepackage{lmodern}
 \usepackage{amsmath,amssymb}
 \usepackage{setspace}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{enumitem}
 \usepackage[authoryear,round]{natbib}
 \usepackage[colorlinks=true,linkcolor=black,citecolor=blue,urlcolor=blue]{hyperref}
-\setstretch{1.15}
+\setstretch{1.12}
+\setlist{itemsep=1pt,topsep=3pt}
+\emergencystretch=1.5em
 
 % ---------- Title ----------
-\title{Research Proposal\\[0.3em]\large TITLE TO BE DECIDED}
+\title{\textbf{Broken Rungs: Generative AI, Entry-Level Hiring,\\ and the Accumulation of Tacit Skills}\\[0.4em]\large Research Proposal}
 \author{Ruifeng (Charles) Yi\\ \small Applicant, PhD in Economics, National University of Singapore}
 \date{}
 
 \begin{document}
 \maketitle
+\vspace{-1.5em}
 
-% NOTE: Structure only. Research direction still to be agreed before drafting.
+\begin{abstract}
+\noindent Since late 2022, employment of workers in their early twenties has fallen sharply in occupations most exposed to generative AI, while employment of experienced workers in the same occupations has held up or grown. The adjustment runs mainly through fewer hires rather than more layoffs. Because much of what makes a worker senior is tacit knowledge acquired on the job, a fall in entry-level hiring today may become a shortage of experienced workers tomorrow. I propose a quantitative life-cycle model of occupational choice in which workers accumulate experience only while employed, AI substitutes for the codified tasks performed by juniors and complements seniors, and entry-level hiring is subject to frictions. Estimated on US and Australian data, the model will measure how much of the decline in junior employment is due to AI, the lifetime earnings losses of the cohorts entering the labour market after 2022, the timing of any future shortage of senior workers, and which policies repair the career ladder at the lowest cost.
+\end{abstract}
 
-\section*{Summary}
-% TODO
+% =====================================================================
+\section{Motivation}
 
-\section{Background and Motivation}
-% TODO
+Three facts have emerged from the first wave of evidence on generative AI and the labour market.
+\begin{enumerate}[label=(\roman*)]
+  \item \textbf{Young workers are falling behind.} Using ADP payroll records, \citet{brynjolfsson2026canaries} find that employment of 22--25 year olds in the most AI-exposed occupations is about 19\% below the path of their less-exposed peers by mid-2026, up from 15\% a year earlier. \citet{tucker2026} finds a 12\% decline in early-career employment in the most exposed industry quintile using administrative Census data.
+  \item \textbf{The adjustment runs through hiring.} In both data sets, and in résumé data on firms that adopt generative AI \citep{hosseini2026}, the decline is driven by fewer hires of juniors rather than more separations.
+  \item \textbf{Experienced workers show no comparable decline.} Senior employment in the same occupations and firms shows no break in trend, and is rising in occupations that rely on tacit knowledge \citep{brynjolfsson2026canaries, hosseini2026}.
+\end{enumerate}
 
-\section{Research Question}
-% TODO
+These facts are descriptive, and their interpretation is contested. Economy-wide effects on earnings and hours appear small \citep{humlum2025}, and part of the decline in youth hiring coincides with the 2022--23 monetary tightening \citep{tucker2026}. But if the facts reflect a genuine shift in the demand for junior labour, they raise a dynamic question that the existing evidence cannot answer. A junior position is not only a job; it is where workers acquire the tacit knowledge that later makes them senior \citep{garicano2006}. If AI removes the bottom rungs of the career ladder, the cost does not end with today's lost entry-level jobs. It continues through slower skill accumulation for the affected cohorts and, eventually, a thinner supply of the experienced workers whom AI complements. \citet{ide2026} shows in theory that automating entry-level tasks can lower long-run growth through exactly this channel. How large that channel is in practice remains unknown.
 
-\section{Model and Methods}
-% TODO
+% =====================================================================
+\section{Research Questions}
 
+\begin{enumerate}[label=\textbf{Q\arabic*.}]
+  \item How much of the post-2022 decline in junior employment in AI-exposed occupations is caused by AI, as opposed to monetary policy, remote work or rising educational attainment?
+  \item How large are the losses in experience and lifetime earnings for cohorts entering the labour market after 2022, and when, if ever, does reduced junior hiring translate into a shortage of senior workers?
+  \item Which policies---entry-level wage subsidies, subsidised apprenticeships, or support for switching occupations---restore skill accumulation at the lowest fiscal cost?
+\end{enumerate}
+
+% =====================================================================
+\section{Related Literature and Contribution}
+
+\textit{Empirical work on AI and labour markets} documents exposure \citep{eloundou2024, gmyrek2023} and early employment effects \citep{brynjolfsson2026canaries, tucker2026, hosseini2026, humlum2025}. These studies are reduced-form and estimate relative effects; they cannot recover cohort-level welfare or the general-equilibrium path of senior labour supply. \textit{Dynamic models of occupational choice} quantify how workers reallocate after demand shocks, mostly trade shocks \citep{keane1997, artuc2010, dixcarneiro2014, traiberman2019}, but have not been applied to AI, nor built around the junior--senior distinction. \textit{Theories of knowledge hierarchies and on-the-job learning} \citep{garicano2000, garicano2006, ide2026} explain why entry-level work matters for skill formation, but are not taken to data.
+
+My contribution is to connect these three strands: to embed the junior--senior skill-accumulation channel in an estimable dynamic model of occupational choice, discipline it with the new micro evidence on early-career hiring, and use it to quantify cohort losses and evaluate policy.
+
+% =====================================================================
+\section{Model}
+
+\paragraph{Workers.} Workers live from age 22 and choose each year among occupations $o \in \{1,\dots,O\}$ or non-employment. A worker's state is $s=(o, e, a)$: current occupation, accumulated experience in that occupation, and age. Experience grows only while employed, and a worker becomes senior in occupation $o$ once experience passes a threshold $\bar{e}_o$; with occupation-specific experience, switching occupations destroys part of the accumulated skill \citep{keane1997, dixcarneiro2014}. Entering a junior position in occupation $k$ succeeds with probability $\lambda_{k,t}$. The value of state $s$ is
+\begin{equation}
+\begin{aligned}
+V_t(s) = w_t(s) + \beta\, \mathbb{E}\Big[\max_{k}\big\{ & \lambda_{k,t+1}V_{t+1}(k,e',a+1) \\
+ & + (1-\lambda_{k,t+1})\,U_{t+1}(e',a+1) - C_{ok} + \varepsilon_{k}\big\}\Big],
+\end{aligned}
+\end{equation}
+where $w_t(s)$ is the wage, $U$ the value of non-employment, $C_{ok}$ the cost of switching from $o$ to $k$, and $\varepsilon_k$ an idiosyncratic preference shock. For incumbents, $\lambda=1$ for staying put.
+
+\paragraph{Firms and AI.} Output in occupation $o$ combines junior labour $L^{J}$, senior labour $L^{S}$ and AI services $M$:
+\begin{equation}
+Y_{o,t} = \Big[\alpha_o \big(L^{J}_{o,t} + \theta_{o,t} M_{o,t}\big)^{\rho} + (1-\alpha_o)\big(L^{S}_{o,t}\big)^{\rho}\Big]^{1/\rho}, \qquad \rho < 1.
+\end{equation}
+AI substitutes for the codified tasks performed by juniors, and its efficiency $\theta_{o,t}$ rises after 2022 in proportion to the occupation's exposure. Because junior and senior inputs are complements, a rise in $\theta_{o,t}$ lowers the demand for junior labour and raises the marginal product of seniors.
+
+\paragraph{Hiring frictions.} If junior wages fully cleared the market, the model would predict falling entry wages rather than falling hiring---the opposite of fact (ii). I therefore assume entry-level wages adjust sluggishly, so that a decline in junior labour demand appears mainly as a fall in the job-finding rate $\lambda_{o,t}$. Firms do not internalise that junior positions build the future supply of seniors, which creates a role for policy \citep{ide2026}.
+
+\paragraph{Key mechanism.} An AI shock lowers $\lambda_{o,t}$ for young workers in exposed occupations. Some delay entry, some enter less-exposed occupations where their experience is worth less, and some accumulate experience more slowly. Years later, the stock of seniors in exposed occupations is smaller than it would otherwise have been, so senior wages rise. Whether this feedback is quantitatively important is the central empirical question.
+
+% =====================================================================
+\section{Identification and Estimation}
+
+Estimation proceeds in two steps. First, I estimate switching costs, experience returns and promotion thresholds from pre-2020 worker flows and age--earnings profiles by occupation, using the conditional-choice-probability approach that allows switching costs to be recovered from gross flows and wages without repeatedly solving the full model \citep{artuc2010}. Second, I identify the path of AI efficiency $\theta_t$ from the post-2022 divergence in hiring between junior and senior workers within the same occupation, across occupations with different exposure. Comparing juniors and seniors within an occupation absorbs shocks common to the occupation, including its sensitivity to interest rates. I further control for exposure to high-frequency monetary policy shocks \citep{jarocinski2020}, following \citet{hosseini2026}. Moments not used in estimation---the change in the senior wage premium and in promotion rates---serve as out-of-sample tests of the mechanism.
+
+% =====================================================================
 \section{Data}
-% TODO
 
-\section{Preliminary Evidence}
-% TODO
+\begin{center}
+\small
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{4.5cm}>{\raggedright\arraybackslash}p{5.2cm}>{\raggedright\arraybackslash}p{5.4cm}@{}}
+\toprule
+Source & Content & Use \\
+\midrule
+Current Population Survey (US) & Monthly occupation, age, wages & Worker flows, age--earnings profiles \\
+Quarterly Workforce Indicators (US) & Hires and separations by age group & Junior vs.\ senior hiring \\
+HILDA Survey (Australia) & Annual panel, occupation, earnings & Second-country estimation, validation \\
+ABS Labour Force Survey & Employment by age and occupation & Australian aggregate moments \\
+\citet{eloundou2024}; \citet{gmyrek2023} & Occupation-level AI exposure & Shock intensity $\theta_{o,t}$ \\
+\bottomrule
+\end{tabular}
+\end{center}
 
-\section{Contribution and Timeline}
-% TODO
+\noindent All sources are publicly available or accessible to university researchers. Australia provides a useful second case: a smaller economy that adopts the same technology with a different wage-setting system, where award wages may make entry-level wages especially rigid.
+
+% =====================================================================
+\section{Preliminary Work}
+
+In my Honours thesis, supervised by Associate Professor Jan Kab\'{a}tek, I linked occupation-level measures of generative AI exposure, separating automation from augmentation, to HILDA and studied how workers' perceived job insecurity changed after the release of ChatGPT. I find that a one-standard-deviation increase in augmentation exposure raised perceived job insecurity by 0.63 percentage points, about 7.4\% of the 2022 mean. The thesis provides the exposure measures and data infrastructure this project builds on. It also shows that workers' expectations responded to AI quickly---which matters for a forward-looking model, in which today's occupational choices depend on what workers believe about future demand.
+
+% =====================================================================
+\section{Policy Counterfactuals and Timeline}
+
+The estimated model will be used to compute, for each cohort entering between 2023 and 2030, the loss in experience and lifetime earnings relative to a no-AI path; the timing and size of any senior shortage; and the cost-effectiveness of entry-level wage subsidies, apprenticeship subsidies and occupational-switching support.
+
+\begin{itemize}
+  \item \textbf{Year 1--2 (Chapter 1):} Document junior--senior hiring divergence in CPS and QWI; separate AI from monetary-policy and remote-work explanations.
+  \item \textbf{Year 2--3 (Chapter 2):} Estimate the structural model on US data; quantify cohort losses.
+  \item \textbf{Year 3--5 (Chapter 3):} Policy counterfactuals; extend to Australia.
+\end{itemize}
+
+\noindent The main risk is that the decline in junior hiring proves to be largely cyclical. In that case Chapter 1 is itself a contribution, and the model remains useful for evaluating future, larger AI shocks, for which the career-ladder channel will matter more.
 
 \bibliographystyle{apalike}
 \bibliography{references}
