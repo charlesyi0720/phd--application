@@ -11,7 +11,7 @@
 \usepackage{enumitem}
 \usepackage[authoryear,round]{natbib}
 \usepackage[colorlinks=true,linkcolor=black,citecolor=blue,urlcolor=blue]{hyperref}
-\setstretch{1.12}
+\setstretch{1.08}
 \setlist{itemsep=1pt,topsep=3pt}
 \emergencystretch=1.5em
 
@@ -25,7 +25,7 @@
 \vspace{-1.5em}
 
 \begin{abstract}
-\noindent Since late 2022, employment of workers in their early twenties has fallen sharply in occupations most exposed to generative AI, while employment of experienced workers in the same occupations has held up or grown. The adjustment runs mainly through fewer hires rather than more layoffs. Because much of what makes a worker senior is tacit knowledge acquired on the job, a fall in entry-level hiring today may become a shortage of experienced workers tomorrow. I propose a quantitative life-cycle model of occupational choice in which workers accumulate experience only while employed, AI substitutes for the codified tasks performed by juniors and complements seniors, and entry-level hiring is subject to frictions. Estimated on US and Australian data, the model will measure how much of the decline in junior employment is due to AI, the lifetime earnings losses of the cohorts entering the labour market after 2022, the timing of any future shortage of senior workers, and which policies repair the career ladder at the lowest cost.
+\noindent Since late 2022, employment of workers in their early twenties has fallen sharply in occupations most exposed to generative AI, while employment of experienced workers in the same occupations has held up or grown. The adjustment runs mainly through fewer hires rather than more layoffs. Because much of what makes a worker senior is tacit knowledge acquired on the job, a fall in entry-level hiring today may become a shortage of experienced workers tomorrow. I propose a quantitative life-cycle model of occupational choice in which workers accumulate experience only while employed, AI substitutes for the codified tasks performed by juniors and complements seniors, and entry-level hiring is subject to frictions. Estimated on US and Australian data, the model will measure how much of the decline in junior employment is due to AI, the lifetime losses of post-2022 entry cohorts, the timing of any senior shortage, and which policies repair the career ladder most cheaply.
 \end{abstract}
 
 % =====================================================================
@@ -96,30 +96,28 @@ Current Population Survey (US) & Monthly occupation, age, wages & Worker flows, 
 Quarterly Workforce Indicators (US) & Hires and separations by age group & Junior vs.\ senior hiring \\
 HILDA Survey (Australia) & Annual panel, occupation, earnings & Second-country estimation, validation \\
 ABS Labour Force Survey & Employment by age and occupation & Australian aggregate moments \\
-\citet{eloundou2024}; \citet{gmyrek2023} & Occupation-level AI exposure & Shock intensity $\theta_{o,t}$ \\
+\citet{eloundou2024} (US); \citet{jsa2025} (Australia) & Occupation-level AI exposure, automation vs.\ augmentation & Shock intensity $\theta_{o,t}$ \\
 \bottomrule
 \end{tabular}
 \end{center}
 
-\noindent All sources are publicly available or accessible to university researchers. Australia provides a useful second case: a smaller economy that adopts the same technology with a different wage-setting system, where award wages may make entry-level wages especially rigid.
+\noindent All sources are public or accessible to university researchers. Australia provides a useful second case: a smaller economy that adopts the same technology with a different wage-setting system, where award wages may make entry-level wages especially rigid.
 
 % =====================================================================
 \section{Preliminary Work}
 
-In my Honours thesis, supervised by Associate Professor Jan Kab\'{a}tek, I linked occupation-level measures of generative AI exposure, separating automation from augmentation, to HILDA and studied how workers' perceived job insecurity changed after the release of ChatGPT. I find that a one-standard-deviation increase in augmentation exposure raised perceived job insecurity by 0.63 percentage points, about 7.4\% of the 2022 mean. The thesis provides the exposure measures and data infrastructure this project builds on. It also shows that workers' expectations responded to AI quickly---which matters for a forward-looking model, in which today's occupational choices depend on what workers believe about future demand.
+In my Honours thesis, supervised by Associate Professor Jan Kab\'{a}tek, I link restricted-release HILDA data for 2015--2024 to the occupation-level exposure scores of \citet{jsa2025}, which adapt the method of \citet{gmyrek2023} to four-digit Australian occupations and separate automation from augmentation exposure. Using two-way fixed effects and event-study designs, I find that after ChatGPT's release, job insecurity rose more in occupations with higher augmentation exposure: a one-standard-deviation difference is associated with a 0.63 percentage point larger rise, 7.4\% of the 2022 mean. No comparable gradient appears for automation exposure.
+
+The thesis also identified the limitation that motivates this proposal. It measures how \emph{incumbent} workers perceive their risk, whereas the largest effects so far fall on \emph{entrants}, who are never observed in a sample of the already employed. And the technology has since shifted towards delegating whole tasks---the automation-type use under which US evidence shows the sharpest decline in young workers' employment. This project therefore moves from incumbents' perceptions to entrants' hiring and skill accumulation. It builds directly on the thesis's Australian exposure measures and HILDA infrastructure, and the finding that workers' expectations responded to AI within two years matters for a forward-looking model, in which today's occupational choices depend on beliefs about future demand.
 
 % =====================================================================
 \section{Policy Counterfactuals and Timeline}
 
 The estimated model will be used to compute, for each cohort entering between 2023 and 2030, the loss in experience and lifetime earnings relative to a no-AI path; the timing and size of any senior shortage; and the cost-effectiveness of entry-level wage subsidies, apprenticeship subsidies and occupational-switching support.
 
-\begin{itemize}
-  \item \textbf{Year 1--2 (Chapter 1):} Document junior--senior hiring divergence in CPS and QWI; separate AI from monetary-policy and remote-work explanations.
-  \item \textbf{Year 2--3 (Chapter 2):} Estimate the structural model on US data; quantify cohort losses.
-  \item \textbf{Year 3--5 (Chapter 3):} Policy counterfactuals; extend to Australia.
-\end{itemize}
+\noindent\textbf{Timeline.} Years 1--2: document the junior--senior hiring divergence in CPS and QWI and separate AI from monetary-policy and remote-work explanations (Chapter 1). Years 2--3: estimate the structural model and quantify cohort losses (Chapter 2). Years 3--5: policy counterfactuals and the Australian extension (Chapter 3).
 
-\noindent The main risk is that the decline in junior hiring proves to be largely cyclical. In that case Chapter 1 is itself a contribution, and the model remains useful for evaluating future, larger AI shocks, for which the career-ladder channel will matter more.
+\noindent The main risk is that the decline in junior hiring proves largely cyclical; Chapter 1 would then itself be a contribution, and the model would remain useful for larger future AI shocks.
 
 \bibliographystyle{apalike}
 \bibliography{references}
