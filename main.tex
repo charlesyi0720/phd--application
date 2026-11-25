@@ -76,32 +76,34 @@ Y_{o,t} = \Big[\alpha_o \big(L^{J}_{o,t} + \theta_{o,t} M_{o,t}\big)^{\rho} + (1
 \end{equation}
 AI substitutes for the codified tasks performed by juniors, and its efficiency $\theta_{o,t}$ rises after 2022 in proportion to the occupation's exposure. Because junior and senior inputs are complements, a rise in $\theta_{o,t}$ lowers the demand for junior labour and raises the marginal product of seniors.
 
-\paragraph{Hiring frictions.} If junior wages fully cleared the market, the model would predict falling entry wages rather than falling hiring, which contradicts fact (ii). I therefore assume entry-level wages adjust sluggishly, so that a decline in junior labour demand appears mainly as a fall in the job-finding rate $\lambda_{o,t}$. Firms do not internalise that junior positions build the future supply of seniors, which creates a role for policy \citep{ide2026}.
+\paragraph{Hiring frictions.} If junior wages fully cleared the market, the model would predict falling entry wages rather than falling hiring, which contradicts fact (ii). I therefore assume entry-level wages adjust sluggishly. Firms hire juniors until their marginal product equals the sticky entry wage, and the job-finding rate $\lambda_{o,t}$ equals these hires divided by the number of applicants, so a decline in junior labour demand appears mainly as a fall in $\lambda_{o,t}$. Because experience is portable across firms within an occupation, the hiring firm does not capture the value of the skills a junior acquires, and with rigid entry wages the entrant cannot pay for them by accepting lower pay. Junior hiring is then too low from a social point of view, which creates a role for policy \citep{ide2026}.
 
 \paragraph{Key mechanism.} An AI shock lowers $\lambda_{o,t}$ for young workers in exposed occupations. Some delay entry, some enter less-exposed occupations where their experience is worth less, and some accumulate experience more slowly. Years later, the stock of seniors in exposed occupations is smaller than it would otherwise have been, so senior wages rise.
 
 % =====================================================================
 \section{Identification and Estimation}
 
-Estimation proceeds in two steps. First, I estimate the parameters that predate generative AI from data before 2020. Switching costs come from gross occupational flows in the CPS, using the conditional-choice-probability approach of \citet{artuc2010}, which recovers them from flows and wages without repeatedly solving the full model. Returns to experience and promotion thresholds require following the same workers for many years, which the CPS cannot do, so I estimate them from age--earnings profiles in long panels: the PSID for the US and HILDA for Australia. The complementarity parameter $\rho$ and the weights $\alpha_o$ come from pre-2020 variation in the relative wages and relative employment of junior and senior workers within occupations. Second, I identify the path of AI efficiency $\theta_t$ from the post-2022 divergence in hiring between junior and senior workers within the same occupation, across occupations with different exposure. Monetary tightening also falls hardest on entry hiring, so the junior--senior comparison alone does not remove it. The identifying assumption is that, absent AI, the junior--senior hiring gap would not have widened more in more exposed occupations once each occupation's exposure to high-frequency monetary policy shocks \citep{jarocinski2020} is controlled for, following \citet{hosseini2026}. Two moments are left out of estimation as out-of-sample tests of the mechanism: the post-2022 change in the senior wage premium and in promotion rates.
+Estimation proceeds in two steps. First, I estimate the parameters that predate generative AI from data before 2020. Switching costs come from gross occupational flows in the CPS, using the conditional-choice-probability approach of \citet{artuc2010}, which recovers them from flows and wages without repeatedly solving the full model. Returns to experience and promotion thresholds require following the same workers for many years, which the CPS cannot do, so I estimate them from age--earnings profiles in long panels: the PSID for the US and HILDA for Australia. The complementarity parameter $\rho$ and the weights $\alpha_o$ come from pre-2020 variation in the relative wages and relative employment of junior and senior workers within occupations.
+
+Second, I identify the path of AI efficiency $\theta_t$ from the post-2022 divergence in hiring between junior and senior workers within the same occupation, across occupations with different exposure. Monetary tightening also falls hardest on entry hiring, so the junior--senior comparison alone does not remove it. The identifying assumption is that, absent AI, the junior--senior hiring gap would not have widened more in more exposed occupations once each occupation's exposure to high-frequency monetary policy shocks \citep{jarocinski2020} is controlled for, following \citet{hosseini2026}. Two moments are left out of estimation as out-of-sample tests of the mechanism: the post-2022 change in the senior wage premium and in promotion rates.
 
 % =====================================================================
 \section{Data}
 
-All sources below are public or accessible to university researchers. Australia provides a useful second case: a smaller economy that adopts the same technology with a different wage-setting system, where award wages may make entry-level wages especially rigid.
+The US data are the Current Population Survey (CPS), the Panel Study of Income Dynamics (PSID) and the Quarterly Workforce Indicators (QWI); the Australian data are the HILDA Survey and the ABS Labour Force Survey (LFS). All are public or accessible to university researchers. Australia provides a useful second case: a smaller economy that adopts the same technology with a different wage-setting system, where award wages may make entry-level wages especially rigid.
 
 \begin{center}
 \small
-\begin{tabular}{@{}>{\raggedright\arraybackslash}p{4.5cm}>{\raggedright\arraybackslash}p{5.2cm}>{\raggedright\arraybackslash}p{5.4cm}@{}}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.0cm}>{\raggedright\arraybackslash}p{6.6cm}>{\raggedright\arraybackslash}p{5.5cm}@{}}
 \toprule
 Source & Content & Use \\
 \midrule
-Current Population Survey (US) & Monthly occupation, age, wages & Gross occupational flows \\
-Panel Study of Income Dynamics (US) & Long panel, occupation, earnings & Experience returns, promotion thresholds \\
-Quarterly Workforce Indicators (US) & Hires and separations by age group & Junior vs.\ senior hiring \\
-HILDA Survey (Australia) & Annual panel, occupation, earnings & Experience returns (Australia), validation \\
-ABS Labour Force Survey & Employment by age and occupation & Australian aggregate moments \\
-\citet{eloundou2024} (US); \citet{jsa2025} (Australia) & Occupation-level AI exposure, automation vs.\ augmentation & Shock intensity $\theta_{o,t}$ \\
+CPS (US) & Monthly occupation, age, wages & Gross occupational flows \\
+PSID (US) & Long panel: occupation, earnings & Experience returns, thresholds $\bar{e}_o$ \\
+QWI (US) & Hires and separations by age group & Junior vs.\ senior hiring \\
+HILDA (Australia) & Annual panel: occupation, earnings & Experience returns, validation \\
+LFS (Australia) & Employment by age and occupation & Australian aggregate moments \\
+AI exposure scores & US: \citet{eloundou2024}; Australia: \citet{jsa2025} & Shock intensity $\theta_{o,t}$; automation vs.\ augmentation \\
 \bottomrule
 \end{tabular}
 \end{center}
