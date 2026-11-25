@@ -1,0 +1,54 @@
+\documentclass[11pt,a4paper]{article}
+
+% ---------- Statement of Purpose: master draft ----------
+% [PROGRAM] and the final paragraph are replaced for each school.
+% Lines marked % CHECK need Charles to confirm before submission.
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{setspace}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\setstretch{1.1}
+\setlength{\parskip}{0.55em}
+\setlength{\parindent}{0pt}
+\pagestyle{empty}
+
+\newcommand{\program}{[PROGRAM]}
+\newcommand{\heading}[1]{\par\medskip\textbf{#1}\par}
+
+\begin{document}
+
+\begin{center}
+{\large\textbf{Statement of Purpose}}\\[0.3em]
+Ruifeng (Charles) Yi \quad\textbar\quad PhD in Economics, \program
+\end{center}
+
+\heading{Research interests}
+I want to study how generative AI is changing the way workers enter careers and build skills. Since 2022, employment of workers in their early twenties has fallen in the occupations most exposed to AI, mainly because firms are hiring fewer of them, while experienced workers in the same occupations have been largely unaffected (Brynjolfsson, Chandar and Chen, 2026; Hosseini and Lichtinger, 2026). Entry-level jobs are where workers acquire the tacit knowledge that later makes them senior. If AI is removing the bottom rungs of the career ladder, the cost will not end with today's lost jobs. My fields are labour economics and macro-labour, and I want to measure that cost with structural models disciplined by micro data.
+
+\heading{Research experience}
+In my Honours thesis, supervised by Associate Professor Jan Kab\'{a}tek, I studied how workers' perceived job insecurity responded to the release of ChatGPT. I linked restricted-release HILDA panel data (Waves 15 to 24) to Jobs and Skills Australia's generative-AI exposure scores for four-digit occupations, which separate automation exposure (how far AI could perform an occupation's tasks on its own) from augmentation exposure (how far it could enhance workers' performance of them). Using two-way fixed effects and event-study designs, I found that job insecurity rose more in occupations with higher augmentation exposure: a one-standard-deviation difference is associated with a 0.63 percentage point larger rise, 7.4 per cent of the 2022 mean, concentrated in white-collar occupations. Automation exposure shows no comparable gradient. I built the data pipeline myself in R and Stata, examined heterogeneity by occupation, education and gender, and tested the result against balanced-panel, prime-age and placebo specifications.
+
+The project also taught me the limits of my design. Event-study estimates cannot rule out a mild upward drift in the augmentation gradient before 2020. More fundamentally, a survey of employed workers measures how incumbents perceive their risk, but never observes the people who were not hired. US evidence now suggests that these entrants bear most of the adjustment, and that the steepest declines occur where AI substitutes for human tasks: the automation-type exposure that left Australian incumbents unconcerned. Both findings point to adjustment through hiring rather than separations, and that is the question I want to pursue next.
+
+\heading{Proposed research}
+My proposed research has three parts. The first separates AI from the business cycle. Part of the fall in youth hiring coincides with the 2022--23 monetary tightening (Tucker, 2026), which also hits entry hiring hardest. Using hires by age group in the Quarterly Workforce Indicators and the Current Population Survey, I plan to compare the junior--senior hiring gap within occupations across occupations with different AI exposure, controlling for each occupation's sensitivity to high-frequency monetary policy shocks.
+
+The second part asks what the hiring decline costs over a career. I want to build a life-cycle model of occupational choice, in the tradition of Keane and Wolpin (1997) and Dix-Carneiro (2014), in which workers gain occupation-specific experience only while employed, AI substitutes for the codified tasks of juniors and complements seniors, and entry wages adjust slowly, so that a fall in demand shows up as fewer hires rather than lower pay. Estimated on pre-2020 worker flows and age--earnings profiles from the CPS, PSID and HILDA, the model would recover the losses in experience and lifetime earnings for each cohort entering after 2022, and the timing of any later shortage of senior workers. Ide (2026) shows in theory that automating entry-level work can weaken the transmission of tacit knowledge; I want to measure how large that channel is in practice.
+
+The third part is policy. A firm that trains a junior cannot capture the value of skills the worker can take elsewhere, so entry-level hiring may be too low even without AI, and AI may widen the gap. The model would let me compare entry-level wage subsidies, apprenticeship subsidies and support for switching occupations, and compare the United States with Australia, where award wages may make entry pay especially rigid. I expect the details of this agenda to change with coursework, but how new technologies reshape the path from junior to senior is a question I want to keep working on.
+
+\heading{Preparation}
+I came to economics by a non-linear path. After three years of accounting at Zhejiang Sci-Tech University (2020--2023), I realised that what held my attention was the incentives beneath the reporting rules, not the rules themselves. I left that program, transferred to the University of Melbourne in 2024, and completed the Bachelor of Commerce in economics in two years with a weighted average mark of 85.3, followed by an Honours year with a weighted average of 86. % CHECK: final Honours result/class
+My strongest preparation is in econometrics, from Econometrics~1 (91) through Honours Econometrics~3 (88) and Microeconometrics (92), and in theory, including Intermediate Microeconomics (92) and Honours Advanced Macroeconomics (89). % CHECK: Microeconometrics mark
+I have taken Calculus~2 (91) and Linear Algebra, scored 170 on the GRE Quantitative section, and work in R, Stata, Python and MATLAB.
+
+Since July 2026 I have tutored Intermediate Macroeconomics at Melbourne, running four weekly tutorials for 76 students, and I am ready to teach from my first year. % CHECK: 76 vs 74 students
+Earlier internships at PwC Business Consulting in Shanghai and the Australia-UK Chamber of Commerce in London taught me to turn messy data into analysis that decision-makers could use.
+
+\heading{Goals and fit}
+After the PhD, I aim to work as a research economist, in academia, at an international institution such as the IMF or World Bank, or in industry research, on how technology changes the way people build careers.
+[PROGRAM-SPECIFIC PARAGRAPH: 2--3 sentences naming 1--2 tenure-track faculty who are taking students, and why their work fits this agenda.]
+
+\end{document}
