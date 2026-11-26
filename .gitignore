@@ -9,3 +9,4 @@
 *.synctex.gz
 main.pdf
 sop.pdf
+build/

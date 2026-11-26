@@ -1,7 +1,8 @@
 \documentclass[11pt,a4paper]{article}
 
 % ---------- Statement of Purpose: master draft ----------
-% [PROGRAM] and the final paragraph are replaced for each school.
+% To build a school's version, change the \school line below (columbia, bu, georgetown, brown, uw)
+% and recompile. \program and the final paragraph switch automatically.
 % Lines marked % CHECK need Charles to confirm before submission.
 
 \usepackage[margin=2.5cm]{geometry}
@@ -9,12 +10,39 @@
 \usepackage{lmodern}
 \usepackage{setspace}
 \usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\usepackage{etoolbox}
 \setstretch{1.05}
 \setlength{\parskip}{0.45em}
 \setlength{\parindent}{0pt}
 \pagestyle{empty}
 
-\newcommand{\program}{[PROGRAM]}
+\providecommand{\school}{columbia} % <-- CHANGE THIS LINE PER SCHOOL
+
+\newcommand{\program}{%
+  \ifdefstring{\school}{columbia}{Columbia University}{}%
+  \ifdefstring{\school}{bu}{Boston University}{}%
+  \ifdefstring{\school}{georgetown}{Georgetown University}{}%
+  \ifdefstring{\school}{brown}{Brown University}{}%
+  \ifdefstring{\school}{uw}{University of Washington}{}%
+}
+
+\newcommand{\fit}{%
+  \ifdefstring{\school}{columbia}{%
+    At Columbia, I would hope to work with Joseph Stiglitz, whose work with Anton Korinek on how AI could reshape the distribution of income motivates the longer-run part of my agenda, and with Wojciech Kopczuk, whose research on taxation and inequality bears directly on how the gains from AI might be shared. The depth of Columbia's faculty in both macroeconomics and labour economics would let me develop the model and the empirical work side by side.%
+  }{}%
+  \ifdefstring{\school}{bu}{%
+    At Boston University, Laurence Kotlikoff's work on how smart machines can lower the welfare of future generations (Sachs and Kotlikoff, 2012; Benzell et al., 2015) is close to the question I want to ask about cohorts entering an AI-transformed labour market, and his work on generational policy speaks to how such a transition could be financed. I would also hope to learn from Johannes Schmieder, whose research on unemployment insurance and the costs of job loss would shape the empirical side of the project.%
+  }{}%
+  \ifdefstring{\school}{georgetown}{%
+    At Georgetown, Toshihiko Mukoyama's research on how workers reallocate across occupations within and across firms is close to the occupational-choice model at the centre of my proposal, and Mark Huggett's work on the sources of lifetime inequality would help me think about how losses build up over a working life. Georgetown's position in Washington, D.C., close to the IMF and World Bank, also suits the policy-facing career I am aiming for.%
+  }{}%
+  \ifdefstring{\school}{brown}{%
+    At Brown, Fabrizio Perri's research on how the distribution of income and wealth across households interacts with aggregate outcomes, and Alexandre Gaillard's work on the causes and consequences of inequality and taxation, speak directly to the longer-run question of how the gains from AI should be shared. Brown's strength in applied microeconomics would also support the empirical part of the agenda.%
+  }{}%
+  \ifdefstring{\school}{uw}{%
+    [UW PARAGRAPH: faculty still to be confirmed.]%
+  }{}%
+}
 \newcommand{\heading}[1]{\par\medskip\textbf{#1}\par}
 
 \begin{document}
@@ -49,6 +77,6 @@ Earlier internships at PwC Business Consulting in Shanghai and the Australia-UK 
 
 \heading{Goals and fit}
 Economics is the right discipline for this question because its models let us study a world that does not exist yet: general-equilibrium reasoning and policy design can show how incomes, prices and public finances would respond before the change arrives. After the PhD, I aim to work as a research economist, in academia, at an international institution such as the IMF or World Bank, or in industry research.
-[PROGRAM-SPECIFIC PARAGRAPH: 2--3 sentences naming 1--2 tenure-track faculty in macro or labour who are taking students, and why their work fits this agenda.]
+\fit
 
 \end{document}
